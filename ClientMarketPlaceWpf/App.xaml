@@ -1,0 +1,105 @@
+﻿<Application x:Class="ClientMarketPlaceWpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ClientMarketPlaceWpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter  Property="Background" Value="#FF001E50"/>
+            <Setter Property="Foreground" Value="#FFFDF8F8"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <!--<Setter Property="FontFamily" Value="Berlin Sans FB Demi"/>-->
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Bernard MT Condensed"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFF7F6F6"/>
+                    <Setter Property="BorderBrush" Value="#FF041C51"/>
+                    <Setter Property="Foreground" Value="#FF041C51"/>
+                </Trigger>
+            </Style.Triggers>
+           
+        </Style>
+
+
+        <Style TargetType="Button" x:Key="AutoBtn">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter  Property="Background" Value=" #FFFDF8F8"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="#FF001E50"/>
+            <Setter Property="BorderThickness" Value="2"/>
+
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="TitleTb">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#FF021A37"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Bernard MT Condensed"/>
+        </Style>
+
+    
+
+        <Style TargetType="TextBox" >
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="20"/>
+            <!--<Setter Property="Background" Value="#FF6F91CA"/>-->
+            <Setter Property="Foreground" Value="#FF22121F"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="BorderBrush" Value="#FF021A37"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Text">
+            <Setter Property="Foreground" Value="#FF021A37"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Bernard MT Condensed"/>
+        </Style>  
+        <Style TargetType="TextBlock" x:Key="TextOt">
+            <Setter Property="Foreground" Value="#FF021A37"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+        </Style>
+
+        <Style TargetType="ComboBox" >
+     
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+
+        <Style TargetType="Border" x:Key="BorderMe">
+            <Setter Property="BorderBrush" Value="#FF22121F"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+
+        
+        
+        <Style TargetType="PasswordBox">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderBrush" Value="#FF021A37"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Height" Value="20"/>
+            <!--<Setter Property="Background" Value="#FFBDECF3"/>-->
+            <Setter Property="Foreground" Value="#FF22121F"/>
+        </Style>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,23 @@
+﻿<Window x:Class="AdministratorMarketPlaceWpf.Pages.AddDeliveryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdministratorMarketPlaceWpf.Pages"
+        mc:Ignorable="d"
+        Title="Add or Edit Delivery" Height="300" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBlock Text="Title" Style="{StaticResource Text}"/>
+            <TextBox x:Name="TitleTb"
+                     MaxLength="50" 
+                     Text="{Binding Title}" PreviewTextInput="TitleTb_PreviewTextInput"/>
+            <Button Content="Save" x:Name="SaveBtn" 
+                    Click="SaveBtn_Click"/>
+            <Button Content="Exit" x:Name="ExitBtn" 
+                    Click="ExitBtn_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

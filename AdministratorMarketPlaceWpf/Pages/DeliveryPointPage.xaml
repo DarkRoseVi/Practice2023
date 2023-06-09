@@ -1,0 +1,66 @@
+﻿<Page x:Class="AdministratorMarketPlaceWpf.Pages.DeliveryPointPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AdministratorMarketPlaceWpf.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Delivery Point Page">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="322*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" >
+
+              <TextBlock Text="Поиск" 
+                         VerticalAlignment="Center" Margin="5"
+                         Style="{StaticResource TextOt}"/>
+                <TextBox x:Name="PoistTb" TextChanged="PoistTb_TextChanged"/>
+       
+
+        </StackPanel>
+        <DataGrid  AutoGenerateColumns="False"
+                 ColumnWidth="*" 
+                   IsReadOnly="True"
+                   Grid.Row="1"
+                   x:Name="DeliveryPointDt" 
+               >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"
+                                     Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Adress"
+                                    Binding="{Binding Adress}"/>
+                <DataGridTextColumn Header="Responsible"
+                                    Binding="{Binding Useer.Fullname}"/>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel >
+
+                                <Button Content="Edit"
+                                    x:Name="EditDelivpointBtn"
+                                    Click="EditDelivpointBtn_Click"
+                                        Width="50"/>
+                                <Button Content="Delet"
+                                    x:Name="DeletDeliveryPointBtn"
+                               Click="DeletDeliveryPointBtn_Click"
+                                    Width="50"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Add delivery point"
+                Name="AddPoint"
+             Grid.Row="3"
+                Width="130" Height="25"
+              Click="AddPoint_Click"/>
+    </Grid>
+</Page>

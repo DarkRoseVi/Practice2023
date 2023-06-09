@@ -1,0 +1,45 @@
+﻿<Window x:Class="ClientMarketPlaceWpf.Pages.InfoOrderGivWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientMarketPlaceWpf.Pages"
+        mc:Ignorable="d"
+        Title="Information about order " Height="600" Width="400" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource Text}" Text="Order" Margin="5"/>
+                <TextBlock Style="{StaticResource TextOt}" Text="{Binding Order.Id}" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource Text}" Text="Statys" Margin="5"/>
+                <TextBlock 
+                    Style="{StaticResource TextOt}"
+                    Text="{Binding StatysOrder.Title}" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Style="{StaticResource Text}" Text="Product" Margin="5"/>
+                <TextBlock 
+                    Style="{StaticResource TextOt}"
+                    Text="{Binding Product.Title}" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource Text}" Text="DarCode" Margin="5"/>
+                <TextBlock 
+                    Style="{StaticResource TextOt}"
+                    Text="{Binding BarCode}" Margin="5" />
+            </StackPanel>
+            <TextBox Name="BarCode" TextChanged="BarCode_TextChanged" />
+            <StackPanel Orientation="Vertical">
+                <Border Height="252" Width="349" BorderBrush="Black" BorderThickness="1">
+                    <InkCanvas x:Name="barcodeCan" Height="250" Width="347" Background="White" EditingMode="GestureOnly" IsEnabled="False">
+                    </InkCanvas>
+                </Border>
+            </StackPanel>
+            <Button x:Name="Exit" Content="Exit" Click="Exit_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

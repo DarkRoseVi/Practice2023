@@ -1,0 +1,1142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище MArketPlaceAVModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Chek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numger" Type="nvarchar" MaxLength="20" />
+          <Property Name="CSV" Type="nvarchar" MaxLength="3" />
+          <Property Name="Age" Type="date" />
+          <Property Name="BankId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Balance" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="DeliveryPoint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adress" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="DeliveryType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="DateEnd" Type="date" />
+          <Property Name="TypePaymentId" Type="int" />
+          <Property Name="DeliveryTypeId" Type="int" />
+          <Property Name="AdressDelivery" Type="nvarchar(max)" />
+          <Property Name="Check" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeliveryPointId" Type="int" />
+          <Property Name="Sum" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="EmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Descriprion" Type="nvarchar(max)" />
+          <Property Name="Phoro" Type="image" />
+          <Property Name="TypeProductId" Type="int" />
+          <Property Name="ProviderId" Type="int" />
+          <Property Name="Image" Type="image" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ProductOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PriductId" Type="int" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="StatysOrderId" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="BarCode" Type="nvarchar" MaxLength="13" />
+        </EntityType>
+        <EntityType Name="ProductPhoto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="Provider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adress" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lodin" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descriprion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StatysOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypePayment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TypeProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Useer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="SurName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <Association Name="FK_Chek_Useer">
+          <End Role="Useer" Type="Self.Useer" Multiplicity="0..1" />
+          <End Role="Chek" Type="Self.Chek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chek">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChekId_Bank">
+          <End Role="Bank" Type="Self.Bank" Multiplicity="0..1" />
+          <End Role="Chek" Type="Self.Chek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chek">
+              <PropertyRef Name="BankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryPoint_Useer">
+          <End Role="Useer" Type="Self.Useer" Multiplicity="0..1" />
+          <End Role="DeliveryPoint" Type="Self.DeliveryPoint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryPoint">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_DeliveryPoint1">
+          <End Role="DeliveryPoint" Type="Self.DeliveryPoint" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryPoint">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="DeliveryPointId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_DeliveryType">
+          <End Role="DeliveryType" Type="Self.DeliveryType" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="DeliveryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TypePayment">
+          <End Role="TypePayment" Type="Self.TypePayment" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypePayment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="TypePaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Useer">
+          <End Role="Useer" Type="Self.Useer" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Useer1">
+          <End Role="Useer" Type="Self.Useer" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Provider">
+          <End Role="Provider" Type="Self.Provider" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TypeProduct">
+          <End Role="TypeProduct" Type="Self.TypeProduct" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TypeProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductOrder_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductOrder">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductOrder_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductOrder">
+              <PropertyRef Name="PriductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductOrder_StatysOrder">
+          <End Role="StatysOrder" Type="Self.StatysOrder" Multiplicity="0..1" />
+          <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatysOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductOrder">
+              <PropertyRef Name="StatysOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductPhoto_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductPhoto" Type="Self.ProductPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductPhoto">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Useer">
+          <End Role="Useer" Type="Self.Useer" Multiplicity="0..1" />
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Useer_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Useer" Type="Self.Useer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Useer">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище MArketPlaceAVModelContainer">
+          <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chek" EntityType="Self.Chek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryPoint" EntityType="Self.DeliveryPoint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryType" EntityType="Self.DeliveryType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductOrder" EntityType="Self.ProductOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductPhoto" EntityType="Self.ProductPhoto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provider" EntityType="Self.Provider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatysOrder" EntityType="Self.StatysOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypePayment" EntityType="Self.TypePayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeProduct" EntityType="Self.TypeProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Useer" EntityType="Self.Useer" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Chek_Useer" Association="Self.FK_Chek_Useer">
+            <End Role="Useer" EntitySet="Useer" />
+            <End Role="Chek" EntitySet="Chek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChekId_Bank" Association="Self.FK_ChekId_Bank">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="Chek" EntitySet="Chek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryPoint_Useer" Association="Self.FK_DeliveryPoint_Useer">
+            <End Role="Useer" EntitySet="Useer" />
+            <End Role="DeliveryPoint" EntitySet="DeliveryPoint" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_DeliveryPoint1" Association="Self.FK_Order_DeliveryPoint1">
+            <End Role="DeliveryPoint" EntitySet="DeliveryPoint" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_DeliveryType" Association="Self.FK_Order_DeliveryType">
+            <End Role="DeliveryType" EntitySet="DeliveryType" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TypePayment" Association="Self.FK_Order_TypePayment">
+            <End Role="TypePayment" EntitySet="TypePayment" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Useer" Association="Self.FK_Order_Useer">
+            <End Role="Useer" EntitySet="Useer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Useer1" Association="Self.FK_Order_Useer1">
+            <End Role="Useer" EntitySet="Useer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Provider" Association="Self.FK_Product_Provider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TypeProduct" Association="Self.FK_Product_TypeProduct">
+            <End Role="TypeProduct" EntitySet="TypeProduct" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductOrder_Order" Association="Self.FK_ProductOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="ProductOrder" EntitySet="ProductOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductOrder_Product" Association="Self.FK_ProductOrder_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductOrder" EntitySet="ProductOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductOrder_StatysOrder" Association="Self.FK_ProductOrder_StatysOrder">
+            <End Role="StatysOrder" EntitySet="StatysOrder" />
+            <End Role="ProductOrder" EntitySet="ProductOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductPhoto_Product" Association="Self.FK_ProductPhoto_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductPhoto" EntitySet="ProductPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Product" Association="Self.FK_Review_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Review" EntitySet="Review" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Useer" Association="Self.FK_Review_Useer">
+            <End Role="Useer" EntitySet="Useer" />
+            <End Role="Review" EntitySet="Review" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Useer_Role" Association="Self.FK_Useer_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Useer" EntitySet="Useer" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MArketPlaceAVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MArketPlaceAVEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bank" EntityType="MArketPlaceAVModel.Bank" />
+          <EntitySet Name="Chek" EntityType="MArketPlaceAVModel.Chek" />
+          <EntitySet Name="DeliveryPoint" EntityType="MArketPlaceAVModel.DeliveryPoint" />
+          <EntitySet Name="DeliveryType" EntityType="MArketPlaceAVModel.DeliveryType" />
+          <EntitySet Name="Order" EntityType="MArketPlaceAVModel.Order" />
+          <EntitySet Name="Product" EntityType="MArketPlaceAVModel.Product" />
+          <EntitySet Name="ProductOrder" EntityType="MArketPlaceAVModel.ProductOrder" />
+          <EntitySet Name="ProductPhoto" EntityType="MArketPlaceAVModel.ProductPhoto" />
+          <EntitySet Name="Provider" EntityType="MArketPlaceAVModel.Provider" />
+          <EntitySet Name="Review" EntityType="MArketPlaceAVModel.Review" />
+          <EntitySet Name="Role" EntityType="MArketPlaceAVModel.Role" />
+          <EntitySet Name="StatysOrder" EntityType="MArketPlaceAVModel.StatysOrder" />
+          <EntitySet Name="sysdiagrams" EntityType="MArketPlaceAVModel.sysdiagrams" />
+          <EntitySet Name="TypePayment" EntityType="MArketPlaceAVModel.TypePayment" />
+          <EntitySet Name="TypeProduct" EntityType="MArketPlaceAVModel.TypeProduct" />
+          <EntitySet Name="Useer" EntityType="MArketPlaceAVModel.Useer" />
+          <AssociationSet Name="FK_ChekId_Bank" Association="MArketPlaceAVModel.FK_ChekId_Bank">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="Chek" EntitySet="Chek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chek_Useer" Association="MArketPlaceAVModel.FK_Chek_Useer">
+            <End Role="Useer" EntitySet="Useer" />
+            <End Role="Chek" EntitySet="Chek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryPoint_Useer" Association="MArketPlaceAVModel.FK_DeliveryPoint_Useer">
+            <End Role="Useer" EntitySet="Useer" />
+            <End Role="DeliveryPoint" EntitySet="DeliveryPoint" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_DeliveryPoint1" Association="MArketPlaceAVModel.FK_Order_DeliveryPoint1">
+            <End Role="DeliveryPoint" EntitySet="DeliveryPoint" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_DeliveryType" Association="MArketPlaceAVModel.FK_Order_DeliveryType">
+            <End Role="DeliveryType" EntitySet="DeliveryType" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TypePayment" Association="MArketPlaceAVModel.FK_Order_TypePayment">
+            <End Role="TypePayment" EntitySet="TypePayment" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Useer" Association="MArketPlaceAVModel.FK_Order_Useer">
+            <End Role="Useer" EntitySet="Useer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Useer1" Association="MArketPlaceAVModel.FK_Order_Useer1">
+            <End Role="Useer" EntitySet="Useer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductOrder_Order" Association="MArketPlaceAVModel.FK_ProductOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="ProductOrder" EntitySet="ProductOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Provider" Association="MArketPlaceAVModel.FK_Product_Provider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TypeProduct" Association="MArketPlaceAVModel.FK_Product_TypeProduct">
+            <End Role="TypeProduct" EntitySet="TypeProduct" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductOrder_Product" Association="MArketPlaceAVModel.FK_ProductOrder_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductOrder" EntitySet="ProductOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductPhoto_Product" Association="MArketPlaceAVModel.FK_ProductPhoto_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductPhoto" EntitySet="ProductPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Product" Association="MArketPlaceAVModel.FK_Review_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Review" EntitySet="Review" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductOrder_StatysOrder" Association="MArketPlaceAVModel.FK_ProductOrder_StatysOrder">
+            <End Role="StatysOrder" EntitySet="StatysOrder" />
+            <End Role="ProductOrder" EntitySet="ProductOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Useer" Association="MArketPlaceAVModel.FK_Review_Useer">
+            <End Role="Useer" EntitySet="Useer" />
+            <End Role="Review" EntitySet="Review" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Useer_Role" Association="MArketPlaceAVModel.FK_Useer_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Useer" EntitySet="Useer" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Chek" Relationship="MArketPlaceAVModel.FK_ChekId_Bank" FromRole="Bank" ToRole="Chek" />
+        </EntityType>
+        <EntityType Name="Chek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numger" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CSV" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="DateTime" Precision="0" />
+          <Property Name="BankId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Balance" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Bank" Relationship="MArketPlaceAVModel.FK_ChekId_Bank" FromRole="Chek" ToRole="Bank" />
+          <NavigationProperty Name="Useer" Relationship="MArketPlaceAVModel.FK_Chek_Useer" FromRole="Chek" ToRole="Useer" />
+        </EntityType>
+        <EntityType Name="DeliveryPoint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="Useer" Relationship="MArketPlaceAVModel.FK_DeliveryPoint_Useer" FromRole="DeliveryPoint" ToRole="Useer" />
+          <NavigationProperty Name="Order" Relationship="MArketPlaceAVModel.FK_Order_DeliveryPoint1" FromRole="DeliveryPoint" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="DeliveryType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="MArketPlaceAVModel.FK_Order_DeliveryType" FromRole="DeliveryType" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="DateEnd" Type="DateTime" Precision="0" />
+          <Property Name="TypePaymentId" Type="Int32" />
+          <Property Name="DeliveryTypeId" Type="Int32" />
+          <Property Name="AdressDelivery" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Check" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryPointId" Type="Int32" />
+          <Property Name="Sum" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <NavigationProperty Name="DeliveryPoint" Relationship="MArketPlaceAVModel.FK_Order_DeliveryPoint1" FromRole="Order" ToRole="DeliveryPoint" />
+          <NavigationProperty Name="DeliveryType" Relationship="MArketPlaceAVModel.FK_Order_DeliveryType" FromRole="Order" ToRole="DeliveryType" />
+          <NavigationProperty Name="TypePayment" Relationship="MArketPlaceAVModel.FK_Order_TypePayment" FromRole="Order" ToRole="TypePayment" />
+          <NavigationProperty Name="Useer" Relationship="MArketPlaceAVModel.FK_Order_Useer" FromRole="Order" ToRole="Useer" />
+          <NavigationProperty Name="Useer1" Relationship="MArketPlaceAVModel.FK_Order_Useer1" FromRole="Order" ToRole="Useer" />
+          <NavigationProperty Name="ProductOrder" Relationship="MArketPlaceAVModel.FK_ProductOrder_Order" FromRole="Order" ToRole="ProductOrder" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descriprion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phoro" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TypeProductId" Type="Int32" />
+          <Property Name="ProviderId" Type="Int32" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Provider" Relationship="MArketPlaceAVModel.FK_Product_Provider" FromRole="Product" ToRole="Provider" />
+          <NavigationProperty Name="TypeProduct" Relationship="MArketPlaceAVModel.FK_Product_TypeProduct" FromRole="Product" ToRole="TypeProduct" />
+          <NavigationProperty Name="ProductOrder" Relationship="MArketPlaceAVModel.FK_ProductOrder_Product" FromRole="Product" ToRole="ProductOrder" />
+          <NavigationProperty Name="ProductPhoto" Relationship="MArketPlaceAVModel.FK_ProductPhoto_Product" FromRole="Product" ToRole="ProductPhoto" />
+          <NavigationProperty Name="Review" Relationship="MArketPlaceAVModel.FK_Review_Product" FromRole="Product" ToRole="Review" />
+        </EntityType>
+        <EntityType Name="ProductOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PriductId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="StatysOrderId" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="BarCode" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="MArketPlaceAVModel.FK_ProductOrder_Order" FromRole="ProductOrder" ToRole="Order" />
+          <NavigationProperty Name="Product" Relationship="MArketPlaceAVModel.FK_ProductOrder_Product" FromRole="ProductOrder" ToRole="Product" />
+          <NavigationProperty Name="StatysOrder" Relationship="MArketPlaceAVModel.FK_ProductOrder_StatysOrder" FromRole="ProductOrder" ToRole="StatysOrder" />
+        </EntityType>
+        <EntityType Name="ProductPhoto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Product" Relationship="MArketPlaceAVModel.FK_ProductPhoto_Product" FromRole="ProductPhoto" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Provider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lodin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="MArketPlaceAVModel.FK_Product_Provider" FromRole="Provider" ToRole="Product" />
+          <Property Name="Descriprion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="MArketPlaceAVModel.FK_Review_Product" FromRole="Review" ToRole="Product" />
+          <NavigationProperty Name="Useer" Relationship="MArketPlaceAVModel.FK_Review_Useer" FromRole="Review" ToRole="Useer" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Useer" Relationship="MArketPlaceAVModel.FK_Useer_Role" FromRole="Role" ToRole="Useer" />
+        </EntityType>
+        <EntityType Name="StatysOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductOrder" Relationship="MArketPlaceAVModel.FK_ProductOrder_StatysOrder" FromRole="StatysOrder" ToRole="ProductOrder" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypePayment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="MArketPlaceAVModel.FK_Order_TypePayment" FromRole="TypePayment" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="TypeProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="MArketPlaceAVModel.FK_Product_TypeProduct" FromRole="TypeProduct" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Useer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SurName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Chek" Relationship="MArketPlaceAVModel.FK_Chek_Useer" FromRole="Useer" ToRole="Chek" />
+          <NavigationProperty Name="DeliveryPoint" Relationship="MArketPlaceAVModel.FK_DeliveryPoint_Useer" FromRole="Useer" ToRole="DeliveryPoint" />
+          <NavigationProperty Name="Order" Relationship="MArketPlaceAVModel.FK_Order_Useer" FromRole="Useer" ToRole="Order" />
+          <NavigationProperty Name="Order1" Relationship="MArketPlaceAVModel.FK_Order_Useer1" FromRole="Useer" ToRole="Order" />
+          <NavigationProperty Name="Review" Relationship="MArketPlaceAVModel.FK_Review_Useer" FromRole="Useer" ToRole="Review" />
+          <NavigationProperty Name="Role" Relationship="MArketPlaceAVModel.FK_Useer_Role" FromRole="Useer" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_ChekId_Bank">
+          <End Type="MArketPlaceAVModel.Bank" Role="Bank" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Chek" Role="Chek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chek">
+              <PropertyRef Name="BankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chek_Useer">
+          <End Type="MArketPlaceAVModel.Useer" Role="Useer" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Chek" Role="Chek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chek">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryPoint_Useer">
+          <End Type="MArketPlaceAVModel.Useer" Role="Useer" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.DeliveryPoint" Role="DeliveryPoint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryPoint">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_DeliveryPoint1">
+          <End Type="MArketPlaceAVModel.DeliveryPoint" Role="DeliveryPoint" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryPoint">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="DeliveryPointId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_DeliveryType">
+          <End Type="MArketPlaceAVModel.DeliveryType" Role="DeliveryType" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="DeliveryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TypePayment">
+          <End Type="MArketPlaceAVModel.TypePayment" Role="TypePayment" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypePayment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="TypePaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Useer">
+          <End Type="MArketPlaceAVModel.Useer" Role="Useer" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Useer1">
+          <End Type="MArketPlaceAVModel.Useer" Role="Useer" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductOrder_Order">
+          <End Type="MArketPlaceAVModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.ProductOrder" Role="ProductOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductOrder">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Provider">
+          <End Type="MArketPlaceAVModel.Provider" Role="Provider" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TypeProduct">
+          <End Type="MArketPlaceAVModel.TypeProduct" Role="TypeProduct" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TypeProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductOrder_Product">
+          <End Type="MArketPlaceAVModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.ProductOrder" Role="ProductOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductOrder">
+              <PropertyRef Name="PriductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductPhoto_Product">
+          <End Type="MArketPlaceAVModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.ProductPhoto" Role="ProductPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductPhoto">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Product">
+          <End Type="MArketPlaceAVModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Review" Role="Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductOrder_StatysOrder">
+          <End Type="MArketPlaceAVModel.StatysOrder" Role="StatysOrder" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.ProductOrder" Role="ProductOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatysOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductOrder">
+              <PropertyRef Name="StatysOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Useer">
+          <End Type="MArketPlaceAVModel.Useer" Role="Useer" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Review" Role="Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Useer_Role">
+          <End Type="MArketPlaceAVModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="MArketPlaceAVModel.Useer" Role="Useer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Useer">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MArketPlaceAVModelContainer" CdmEntityContainer="MArketPlaceAVEntities">
+          <EntitySetMapping Name="Bank">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.Bank">
+              <MappingFragment StoreEntitySet="Bank">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chek">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.Chek">
+              <MappingFragment StoreEntitySet="Chek">
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="CSV" ColumnName="CSV" />
+                <ScalarProperty Name="Numger" ColumnName="Numger" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryPoint">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.DeliveryPoint">
+              <MappingFragment StoreEntitySet="DeliveryPoint">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryType">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.DeliveryType">
+              <MappingFragment StoreEntitySet="DeliveryType">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="DeliveryPointId" ColumnName="DeliveryPointId" />
+                <ScalarProperty Name="Check" ColumnName="Check" />
+                <ScalarProperty Name="AdressDelivery" ColumnName="AdressDelivery" />
+                <ScalarProperty Name="DeliveryTypeId" ColumnName="DeliveryTypeId" />
+                <ScalarProperty Name="TypePaymentId" ColumnName="TypePaymentId" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+                <ScalarProperty Name="TypeProductId" ColumnName="TypeProductId" />
+                <ScalarProperty Name="Phoro" ColumnName="Phoro" />
+                <ScalarProperty Name="Descriprion" ColumnName="Descriprion" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductOrder">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.ProductOrder">
+              <MappingFragment StoreEntitySet="ProductOrder">
+                <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="StatysOrderId" ColumnName="StatysOrderId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="PriductId" ColumnName="PriductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductPhoto">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.ProductPhoto">
+              <MappingFragment StoreEntitySet="ProductPhoto">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provider">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.Provider">
+              <MappingFragment StoreEntitySet="Provider">
+                <ScalarProperty Name="Descriprion" ColumnName="Descriprion" />
+                <ScalarProperty Name="Lodin" ColumnName="Lodin" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Review">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.Review">
+              <MappingFragment StoreEntitySet="Review">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatysOrder">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.StatysOrder">
+              <MappingFragment StoreEntitySet="StatysOrder">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypePayment">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.TypePayment">
+              <MappingFragment StoreEntitySet="TypePayment">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeProduct">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.TypeProduct">
+              <MappingFragment StoreEntitySet="TypeProduct">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Useer">
+            <EntityTypeMapping TypeName="MArketPlaceAVModel.Useer">
+              <MappingFragment StoreEntitySet="Useer">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="SurName" ColumnName="SurName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

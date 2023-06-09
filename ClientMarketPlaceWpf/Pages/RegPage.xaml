@@ -1,0 +1,57 @@
+﻿<Page x:Class="ClientMarketPlaceWpf.Pages.RegPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClientMarketPlaceWpf.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1000"
+      Title="RegPage">
+
+    <Grid>
+
+        <DockPanel>
+
+            <StackPanel DockPanel.Dock="Left" Width="450" VerticalAlignment="Center">
+
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Name" Style="{StaticResource TitleTb}"/>
+                    <TextBox x:Name="NameTb" PreviewTextInput="NameTb_PreviewTextInput" />
+
+                    <TextBlock Text="Last name" Style="{StaticResource TitleTb}"/>
+                    <TextBox x:Name="LastNameTb" PreviewTextInput="LastNameTb_PreviewTextInput"/>
+
+                    <!--отчество-->
+                    <TextBlock Text="Surname" Style="{StaticResource TitleTb}"/>
+                    <TextBox x:Name="SurnameTb" PreviewTextInput="SurnameTb_PreviewTextInput"/>
+
+
+                    <TextBlock Text="Login" Style="{StaticResource TitleTb}"/>
+                    <TextBox x:Name="LoginTb"/>
+
+                    <TextBlock Text="Password" Style="{StaticResource TitleTb}"/>
+                    <PasswordBox x:Name="PasswordTb"/>
+
+                    <TextBlock Text="Password 2" Style="{StaticResource TitleTb}"/>
+                    <PasswordBox x:Name="PasswordTb2"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <Button Content="Registration" 
+                        Click="RegistrationBtn_Click"
+                        x:Name="RegistrationBtn"
+                         Width="100"/>
+                        <Button Content="Exit"
+                       Width="100"
+                        Click="ExitBtn_Click"
+                        x:Name="ExitBtn"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Right" Background="#FF0A1938">
+                <Image  Source="\Resourse\3.jpg" Height="800"/>
+            </StackPanel>
+        </DockPanel>
+
+    </Grid>
+</Page>

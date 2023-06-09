@@ -1,0 +1,131 @@
+﻿<Page x:Class="ClientMarketPlaceWpf.Pages.OrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClientMarketPlaceWpf.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrderPage">
+
+    <Grid>
+      
+        <ListView 
+                  x:Name="OrderLw"
+                  d:ItemsSource="{d:SampleData ItemCount=5}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource BorderMe}">
+                        
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Vertical" Width="250">
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Text="Number order"
+                                          Style="{StaticResource Text}" Margin="5"/>
+                                <TextBlock Text="{Binding Id}" Margin="5"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                    <TextBlock Text="Date orders"   Style="{StaticResource Text}" Margin="5"/>
+                                <TextBlock Text="{Binding Date}" Style="{StaticResource TextOt}" Margin="5"/>
+                            </StackPanel>
+
+                            <StackPanel x:Name="DelPointSt"  Visibility="{Binding VisbDelPoint}" Orientation="Horizontal" Margin="5">
+                                    <TextBlock Text="Delivery Point"   Style="{StaticResource Text}"  Margin="5"/>
+                                    <TextBlock  Text="{Binding AdressPoint}"  Style="{StaticResource TextOt}"
+                                      Width="150"    TextWrapping="Wrap" Margin="5"/>
+                            </StackPanel>
+                            <StackPanel x:Name="adreesDelSt" Visibility="{Binding VisiblAdress}" Orientation="Horizontal" Margin="5">
+                                    <TextBlock Text="Adress Delivery"   Style="{StaticResource Text}" Margin="5"/>
+                                    <TextBlock Text="{Binding AdressDel}"  Style="{StaticResource TextOt}"
+                                       Width="150" TextWrapping="Wrap"  Margin="5"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                    <TextBlock Text="TypePayment "   Style="{StaticResource Text}" Margin="5"/>
+                                <TextBlock x:Name="AdressTb" Text="{Binding TypePayment.Title}" 
+                                            Style="{StaticResource TextOt}"
+                                           Margin="5"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Sum"    Style="{StaticResource Text}" Margin="5"/>
+                                    <TextBlock Text="{Binding Sum}"  Style="{StaticResource TextOt}"
+                                           Margin="5"/>
+                            </StackPanel>
+                        </StackPanel>
+
+
+                        <ListView Grid.Row="0" Grid.Column="1" Width="500" 
+                                  x:Name="ProductLw"
+                                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                                  ItemsSource="{Binding ProductOrder}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" >
+                                    </WrapPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="{Binding Color}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <StackPanel Orientation="Vertical">
+
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Title" Style="{StaticResource Text}" Margin="5"/>
+                                                    <TextBlock Text="{Binding Product.Title}" 
+                                                                Style="{StaticResource TextOt}"
+                                                               Margin="5"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Cost" Style="{StaticResource Text}" Margin="5"/>
+                                                    <TextBlock Text="{Binding Product.Cost}" 
+                                                                Style="{StaticResource TextOt}"
+                                                               Margin="5"/>
+
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="qountiti" Style="{StaticResource Text}" Margin="5"/>
+                                                    <TextBlock Text="{Binding Quantity}"
+                                                                Style="{StaticResource TextOt}"
+                                                               Margin="5"/>
+
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Statys" Style="{StaticResource Text}" Margin="5"/>
+                                                    <TextBlock Text="{Binding StatysOrder.Title}"  
+                                                                Style="{StaticResource TextOt}"
+                                                               Margin="5"/>
+
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                    </Border>
+                        
+              
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

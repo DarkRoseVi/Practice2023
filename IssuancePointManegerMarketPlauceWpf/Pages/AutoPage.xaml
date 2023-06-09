@@ -1,0 +1,70 @@
+﻿<Page x:Class="IssuancePointManegerMarketPlauceWpf.Pages.AutoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IssuancePointManegerMarketPlauceWpf.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="750"
+      Title="AutoPage">
+
+    <Grid>
+        <DockPanel>
+
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        Margin="15"
+                        Width="250"
+                        DockPanel.Dock="Right">
+                <TextBlock Text="Login" Style="{StaticResource TitleTb}"/>
+            <TextBox x:Name="LoginTb"
+                     HorizontalAlignment="Left" Width="220"
+                    Height="20" Margin="5"
+                    MaxLength="50"/>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Password"
+                           Style="{StaticResource TitleTb}"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="Password2TB"
+                  MaxLength="50"
+                             Width="150" Visibility="Collapsed"/>
+                    <PasswordBox x:Name="Password2Pb"  
+                                 Height="20" Margin="5"
+                                 Width="150"
+                                 MaxLength="50"/>
+                    <Button x:Name="Vid" 
+                       Click="Vid_Click"
+                             Width="25" Height="25" Style="{StaticResource AutoBtn}">
+                        <Image Source="\Resourse\Vid.png"/>
+                    </Button>
+                    <Button x:Name="Sce" Width="25" Height="25" 
+                      Click="Sce_Click" Style="{StaticResource AutoBtn}">
+                        <Image Source="\Resourse\NotVid.png"/>
+
+                    </Button>
+                    <CheckBox
+                        Visibility="Hidden"
+                      x:Name="ShowPasswordCharsCheckBox"
+                        Unchecked="ShowPasswordCharsCheckBox_Unchecked"
+                    Checked="ShowPasswordCharsCheckBox_Checked"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Entrance" x:Name="EntranceBtn"
+                        Click="EntranceBtn_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+            <StackPanel  DockPanel.Dock="Left" >
+                <Image RenderOptions.BitmapScalingMode="Fant" 
+                   Source="/Resourse/4.jpg"
+                  
+                        HorizontalAlignment="Left"/>
+
+            </StackPanel>
+        </DockPanel>
+        </Grid>
+</Page>

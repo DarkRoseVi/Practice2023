@@ -1,0 +1,145 @@
+﻿<Page x:Class="ClientMarketPlaceWpf.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClientMarketPlaceWpf.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HomePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0">
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Image profile" Style="{StaticResource Text}" Margin="5"/>
+                <Image x:Name="ImageHome" Margin="5"
+                       Source="{Binding Photo}"
+                       Width="150" Height="150"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource Text}" Text="Last Name" Margin="5"/>
+                <TextBlock Text="{Binding LastName}"
+                         Style="{StaticResource TextOt}"
+                           Name="LastNameTb" Margin="5"/>
+
+                <!--<TextBlock Text="{Binding Id}" Margin="5"/>-->
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Name" Style="{StaticResource Text}" Margin="5"/>
+                <TextBlock Text="{Binding Name}"
+                        Style="{StaticResource TextOt}"   Name ="NameTb"  Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource Text}" Text="Sur Name" Margin="5"/>
+                <TextBlock Text="{Binding SurName}"  Style="{StaticResource TextOt}"
+                           Name="SurNameTb" Margin="5"/>
+            </StackPanel>
+
+            <Button Content="Edit Info" Name="EditInfoBtn"
+                    Click="EditInfoBtn_Click"/>
+
+        </StackPanel>
+
+        <DockPanel Grid.Column="1">
+            <Button DockPanel.Dock="Top" Content="Add"
+                    x:Name="AddBtn"
+                    Click="AddBtn_Click"/>
+            <ListView DockPanel.Dock="Top" Width="auto" Height="160" 
+                      d:ItemsSource="{d:SampleData ItemCount=5}"
+                      x:Name="ChekLw">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource  BorderMe}">
+                            
+                            <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="250"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Row="0" Grid.Column="0"
+                                        Orientation="Horizontal">
+                                    <TextBlock Text="Счет" 
+                                              Style="{StaticResource Text}"
+                                               Margin="5"/>
+                                <TextBlock Text="{Binding Numger}" 
+                                           Style="{StaticResource TextOt}" Margin="5"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="0">
+                                <Button  Height="20"
+                                         Width="50"
+                                    Content="Edit"
+                                     x:Name="EditBtn"
+                                     Click="EditBtn_Click"/>
+
+                            </StackPanel>
+
+                        </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView  DockPanel.Dock="Bottom" Width="auto"
+                       x:Name="OrderLw"
+                       d:ItemsSource="{d:SampleData ItemCount=5}"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource BorderMe}">
+                            
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
+                                <TextBlock Text="Number" Style="{StaticResource Text}" />
+                                <TextBlock 
+                                    Style="{StaticResource TextOt}"
+                                    Text="{Binding Order.Id }" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="1" Margin="5">
+                                <TextBlock Text="User id" Style="{StaticResource Text}"/>
+                                <TextBlock Text="{Binding Order.Useer.Name}"
+                                           Style="{StaticResource TextOt}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Margin="5">
+                                <TextBlock Text="Product" Style="{StaticResource Text}"/>
+                                <TextBlock Text ="{Binding Product.Title}"
+                                           Style="{StaticResource TextOt}"/>
+                 
+                            </StackPanel>
+                            <StackPanel Grid.Column="3"  Margin="5">
+                                <Button Content="Info" Width="50" x:Name="InfoOrrderBtn"
+                                        Click="InfoOrrderBtn_Click"/>
+                            </StackPanel>
+                        </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </DockPanel>
+
+    </Grid>
+</Page>

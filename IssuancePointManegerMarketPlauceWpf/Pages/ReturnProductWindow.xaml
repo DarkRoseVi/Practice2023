@@ -1,0 +1,25 @@
+﻿<Window x:Class="IssuancePointManegerMarketPlauceWpf.Pages.ReturnProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IssuancePointManegerMarketPlauceWpf.Pages"
+        mc:Ignorable="d"
+        Title="ReturnProductWindow" Height="400" Width="300">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Barcode" Style="{StaticResource Text}" Margin="5"/>
+            <TextBox x:Name="BarcodeTb"  Margin="5" TextChanged="BarcodeTb_TextChanged" PreviewTextInput="BarcodeTb_PreviewTextInput"/>
+            <TextBlock Text="Number" Style="{StaticResource Text}" Margin="5"/>
+            <TextBlock Name="NumberBtn" Style="{StaticResource TextOt}" Margin="5"/>
+            <TextBlock Text="User name" Style="{StaticResource Text}" Margin="5"/>
+            <TextBlock Name="UserBtn" Style="{StaticResource TextOt}" Margin="5"/>
+            <TextBlock Text="Product name" Style="{StaticResource Text}" Margin="5"/>
+            <TextBlock Name="NameTb" Style="{StaticResource TextOt}" Margin="5"/>
+            <Button Content="Return" x:Name="ReturnBtn" 
+                    Click="ReturnBtn_Click"/>
+            <Button Content="Exit" x:Name="ExitBtn" 
+                    Click="ExitBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

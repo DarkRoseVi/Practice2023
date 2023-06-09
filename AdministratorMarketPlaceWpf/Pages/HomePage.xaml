@@ -1,0 +1,89 @@
+﻿<Page x:Class="AdministratorMarketPlaceWpf.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AdministratorMarketPlaceWpf.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1000"
+      Title="HomePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Background="#FF001E50"  Grid.Row="0">
+            <Image Source="\Resourses\логотип.jpg"
+              Height="90" 
+               Margin="5 0 0 0 "
+              
+               HorizontalAlignment="Left"/>
+
+            <StackPanel Orientation="Vertical" >
+
+                <StackPanel Orientation="Horizontal" Margin="5">
+
+                    <Button Content="Product"
+                            Width="100"
+                            x:Name="ProductTb"
+                            Click="ProductTb_Click" />
+                    <Button Content="Type product"
+                            Width="100"
+                            x:Name="TypeProductBtn"
+                            Click="TypeProductBtn_Click"/>
+                    <Button Content="Provider"
+                            Width="100"
+                            x:Name="ProviderBtn"
+                            Click="ProviderBtn_Click"/>
+                    <Button Content="Delivery type"
+                            Name="DeliveryBtn"
+                            Click="DeliveryBtn_Click"
+                            Width="100"/>
+                    <Button Content="Delivery point"
+                            Width="100"
+                            x:Name="DeliveryPointBtn"
+                            Click="DeliveryPointBtn_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Button Content="User"
+                            Width="100"
+                            x:Name="UserBtn"
+                            Click="UserBtn_Click"/>
+                    <Button Content="Role"
+                            Width="100"
+                            x:Name="RoleBtn"
+                            Click="RoleBtn_Click"/>
+                    <Button Content="Static delivery point"
+                            Width="150"
+                            x:Name="SaticDeliveryPointBtn"
+                            Click="SaticDeliveryPointBtn_Click"/>
+                    <Button Content="Static courier"
+                            x:Name="CourierStaticBtn"
+                            Click="CourierStaticBtn_Click"
+                            Width="150"/>
+                    <Button Content="Orders"
+                            x:Name="OrdersBtn"
+                            Click="OrdersBtn_Click"
+                            Width="100"/>
+                </StackPanel>
+                <!--<StackPanel Orientation="Horizontal" Margin="5">
+               
+                </StackPanel>-->
+            </StackPanel>
+        </StackPanel>
+
+        <Button x:Name="ExitBtn"
+                      VerticalAlignment="Top" HorizontalAlignment="Right"
+                        Content="Exit" 
+                        Click="ExitBtn_Click"
+                Margin="35"
+                Width="100" Height="20"/>
+
+
+        <Frame x:Name="MyFrame" Grid.Row="1"/>
+        <Rectangle   Grid.Row="2" Fill="#FF001E50"  />
+
+    </Grid>
+</Page>

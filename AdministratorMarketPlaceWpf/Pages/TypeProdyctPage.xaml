@@ -1,0 +1,66 @@
+﻿<Page x:Class="AdministratorMarketPlaceWpf.Pages.TypeProdyctPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AdministratorMarketPlaceWpf.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Type Prodyct Page"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="322*"/>
+        </Grid.RowDefinitions>
+        <!--<StackPanel Grid.Row="0" Orientation="Horizontal"
+                    VerticalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Сортировка"/>
+                <ComboBox x:Name="SortBtn"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Поиск"/>
+                <TextBox x:Name="PoistTb"/>
+            </StackPanel>
+
+
+        </StackPanel>-->
+        <Button Content="Add" Name="AbbBtn"
+                    Click="AbbBtn_Click" Margin="20"
+                    HorizontalAlignment="Right"
+                Width="100"/>
+
+        <DataGrid IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                   ColumnWidth="*" 
+                  x:Name="TypeProdDt"  Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"
+                                    Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Title"
+                                    Binding="{Binding Title}"/>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel >
+
+                                <Button Content="Edit"
+                                    x:Name="EditBtn"
+                                   Click="EditBtn_Click"
+                                    Width="50"/>
+                                <Button Content="Delete"
+                                    x:Name="DeletBtn"
+                                  Click="DeletBtn_Click"
+                                    Width="50"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

@@ -1,0 +1,31 @@
+﻿<Window x:Class="IssuancePointManegerMarketPlauceWpf.Pages.EditStatysWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IssuancePointManegerMarketPlauceWpf.Pages"
+        mc:Ignorable="d"
+        Title="EditStatysWindow" Height="300" Width="300"
+        ResizeMode="NoResize">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Title" Style="{StaticResource Text}"/>
+            <TextBlock Text="{Binding Product.Title}" 
+                       Style="{StaticResource TextOt}"/>
+            <TextBlock Text="Status" 
+                       Style="{StaticResource Text}"/>
+            <TextBlock Text="{Binding StatysOrder.Title}" Margin="5"
+                       Style="{StaticResource TextOt}"/>
+            <ComboBox SelectedItem="{Binding StatysOrder}"
+                      DisplayMemberPath="Title"
+                      Name="StatusCb" />
+            <TextBlock Text="Quantity" Style="{StaticResource Text}"/>
+            <TextBox Text="{Binding Quantity}" x:Name="QuantitiTb" 
+                     TextInput="QuantitiTb_TextInput"/>
+            <Button Content="Save" Name="SaveBtn"
+                    Click="SaveBtn_Click"/>
+            <Button Content="Exit" x:Name="ExitBtn"
+                    Click="ExitBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,38 @@
+﻿<Window x:Class="ProviderMarcetPlaceWpf.Pages.EditStatusProductorderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProviderMarcetPlaceWpf.Pages"
+        mc:Ignorable="d"
+        Title="Edit  Status Product Window" Height="300"
+        Width="300"
+        ResizeMode="NoResize">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Product name" 
+                       Style="{StaticResource Text}"
+                       Margin="5"/>
+            <TextBlock Text="{Binding Product.Title}"
+                     Margin="5"  Width="150" 
+                       Style="{StaticResource TextOt}"
+                       TextWrapping="Wrap" Height="auto"/>
+            <TextBlock Text="Status"
+                         Style="{StaticResource Text}"
+                       Margin="5"/>
+            <TextBlock Name="StatusTb" Margin="5"
+                       Style="{StaticResource TextOt}"/>
+            <ComboBox x:Name="StatusCb"
+                      Margin="5" SelectedItem="{Binding StatysOrder}"
+                      DisplayMemberPath="Title"/>
+            <!--<Button Content="Save"
+                    Click="SaveBtn_Click"
+                    Margin="5"
+                    x:Name="SaveBtn"/>-->
+            <Button Content="Exit" x:Name="ExitBtn"
+                    Click="ExitBtn_Click"
+                    Margin="5"
+                  />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,42 @@
+﻿<Window x:Class="AdministratorMarketPlaceWpf.Pages.ReviewAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdministratorMarketPlaceWpf.Pages"
+        mc:Ignorable="d"
+        Title="ReviewAddWindow" Height="400" Width="400" 
+        ResizeMode="NoResize">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="80">
+                <TextBlock Text="Buyer" Style="{StaticResource Text}" Margin="5"/>
+                <TextBlock x:Name="FullUserNameTb" Style="{StaticResource TextOt}"
+                           Width="150" Margin="5"
+                           Height="70" TextWrapping="Wrap"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Product's name" 
+                           Style="{StaticResource Text}"
+                           Margin="5"/>
+                <ComboBox x:Name="ProductCb" DisplayMemberPath="Title"
+                          SelectedItem="{Binding Product}" Margin="5" />
+
+            </StackPanel>
+            <!--<TextBlock x:Name="TitleTb"/>-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Content" Style="{StaticResource Text}" Margin="5"/>
+                <TextBox x:Name="ContentTb" Text="{Binding Description}"
+                         TextWrapping="Wrap"
+                         Height="100" Margin="5" />
+            </StackPanel>
+            <StackPanel>
+                <Button Content="Save" x:Name="SaveBtn"
+                        Click="SaveBtn_Click"/>
+                <Button Content="Exit"
+                        x:Name="ExitBtn"
+                       Click="ExitBtn_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

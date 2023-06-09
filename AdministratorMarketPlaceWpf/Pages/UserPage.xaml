@@ -1,0 +1,83 @@
+﻿<Page x:Class="AdministratorMarketPlaceWpf.Pages.UserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AdministratorMarketPlaceWpf.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="User Page" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="351*"/>
+            <RowDefinition Height="46*"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
+                <Button Content="All"
+                        x:Name="AllBtn"
+                        Width="80"
+                        Click="AllBtn_Click"/>
+                <Button Content="Administrator"
+                         x:Name="AdminBtn" Width="100"
+                        Click="AdminBtn_Click"/>
+                <Button Content="Courier" Width="100"
+                        Click="CourierBtn_Click"
+                        Name="CourierBtn"/>
+                <Button Content="Pick-up Point manager"
+                        Name="EmployeePointBtn" Width="160"
+                         Click="EmployeePointBtn_Click"/>
+                <Button Content="Clietn" 
+                        Name="ClientBtn" Width="100"
+                        Click="ClientBtn_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock   Text="Поиск" VerticalAlignment="Center"/>
+                <TextBox x:Name="PoisTb" TextChanged="PoisTb_TextChanged"/>
+            </StackPanel>
+        </StackPanel>
+
+        <DataGrid  AutoGenerateColumns="False"
+                 ColumnWidth="*"  Grid.Row="1"
+                   IsReadOnly="True"
+                   x:Name="UserDt">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"
+                                    Width="20"
+                                     Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Last Name"
+                                    Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Name"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="SurName"
+                                    Binding="{Binding SurName}"/>
+                <DataGridTextColumn Header="Role"
+                                    Binding="{Binding Role.Title}"/>
+                <DataGridTextColumn Header="Login"
+                                    Binding="{Binding Login}"/>
+                <DataGridTextColumn Header="Password"
+                                    Binding="{Binding Password}"/>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel >
+
+                                <Button Content="Edit"
+                                    x:Name="EditBtn"
+                                   Click="EditBtn_Click"
+                                    Width="50"/>
+                                <Button Content="Delete"
+                                    x:Name="DeletBtn"
+                                Click="DeletBtn_Click"
+                                    Width="50"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="2" Width="100" Content="Add" x:Name="AddBtn" Click="AddBtn_Click"/>
+    </Grid>
+</Page>

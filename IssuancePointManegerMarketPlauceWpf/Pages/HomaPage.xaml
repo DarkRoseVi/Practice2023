@@ -1,0 +1,58 @@
+﻿<Page x:Class="IssuancePointManegerMarketPlauceWpf.Pages.HomaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IssuancePointManegerMarketPlauceWpf.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HomaPage">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="84*"/>
+
+                <RowDefinition Height="335*"/>
+                <RowDefinition Height="31*"/>
+            </Grid.RowDefinitions>
+        
+            <StackPanel Orientation="Horizontal" Grid.Row="0"
+                        Background="#FF001E50"
+                        >
+                <Image 
+               Width="90"
+               Margin="5 0 0 0 "
+               Height="100" 
+               HorizontalAlignment="Left" Source="/Resourse/логотип.jpg"/>
+
+                <StackPanel Orientation="Horizontal" >
+
+                    <Button Content="Giv order"
+                        x:Name="GivOrderBtn"
+                        Click="GivOrderBtn_Click" Width="100"/>
+                    <Button Content="Orders"
+                             Name="Orderbtn"
+                            Click="Orderbtn_Click" Width="100"/>
+                    <Button Content="Return product" Width="100"
+                            x:Name="ReturnBtn"
+                            Click="ReturnBtn_Click"/>
+                </StackPanel>
+                
+            </StackPanel>
+
+
+
+
+
+            <Button x:Name="ExitBtn"
+                   HorizontalAlignment="Right"
+                        Content="Exit" 
+                        Click="ExitBtn_Click" Width="100" Height="20"/>
+
+
+            <Frame Grid.Row="1" x:Name="MyFrame" />
+            <StackPanel Grid.Row="3" Background="#FF001E50" />
+        </Grid>
+    </Grid>
+</Page>
